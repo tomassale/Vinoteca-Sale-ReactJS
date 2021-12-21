@@ -38,6 +38,41 @@ body{
                 }
             }
         }
+        .botones{
+            margin: auto;
+            text-align: center;
+            background-color: rgb(248, 188, 114);
+            height: 110px;
+            width: 190px;
+            .contador{
+                display: flex;
+                background-color: rgb(253, 228, 191);
+                width: 190px;
+                button{
+                    border: 0px;
+                    background-color: initial;
+                    padding: 10px;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                    font-size: 25px;
+                    color: rgb(70, 49, 21);
+                }
+                p{
+                    margin: 10px;
+                    font-size: 25px;
+                }
+            }
+            .agregarAlCarrito{
+                button{
+                    height: 30px;
+                    width: 170px;
+                    background-color: rgb(252, 221, 183);
+                    font-family: 'Lobster', cursive;
+                    font-size: 17px;
+                    margin-top: 12px;
+                }
+            }
+        }
         #greeting{
             text-align: center;
             font-family: 'Lobster', cursive;
