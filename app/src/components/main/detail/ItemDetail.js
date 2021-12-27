@@ -1,11 +1,9 @@
 import ItemCount from "../ItemCount"
 
-const ItemDetail = ({initial, contador, setContador, producto}) => {
+const ItemDetail = ({initial, setContador, producto}) => {
     
     const onAdd = (agregado)=>{
         alert(`Se agregaron ${agregado} al carrito`)
-        onAdd(contador)
-        setContador(1)
     }
     return (
         <div id='item'>
