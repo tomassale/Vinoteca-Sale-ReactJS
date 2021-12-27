@@ -3,14 +3,7 @@ import Item from "./Item"
 const ItemList  = ({prop}) =>{
     return(
         <>
-        {prop.map((mapeo)=>(
-            <Item 
-            id={mapeo.id} 
-            nombre={mapeo.nombre} 
-            precio={mapeo.precio} 
-            imagen={mapeo.imagen} 
-            stock={mapeo.stock}/>
-        ))}
+        {prop.map((mapeo)=>(<Item key={mapeo.id} producto={mapeo}/>))}
         </>
     )
 }
