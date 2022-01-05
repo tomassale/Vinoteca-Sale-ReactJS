@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom"
 
 const Item = ({producto}) =>{
     return(
@@ -7,7 +8,9 @@ const Item = ({producto}) =>{
                 <div className="imagen">
                     <img src={producto.imagen} alt="vinos"/>
                 </div>
-                <button>Detalles del Producto</button>
+                <NavLink to={`/item/${producto.id}`}>
+                    <button>Detalles del Producto</button>
+                </NavLink>
             </div>
         </div>
     )

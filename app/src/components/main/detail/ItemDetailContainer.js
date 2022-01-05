@@ -1,18 +1,18 @@
 import ItemDetail from "./ItemDetail"
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 
 const ItemDetailContainer=()=> {  
 
-    let [detail, setDetail] = useState([])
+    let [detail, setDetail] = useState({})
+    let {id} = useParams()
 
     useEffect(()=>{
-        setTimeout(()=>{
-            fetch('https://mocki.io/v1/139eb92c-9caf-4641-8345-9210ef987d27')
-                .then((res)=>res.json())
-                .then((res)=>{setDetail(res)})
-        }, 2000)
-    }, [])
-    
+        fetch('/item/' + id)
+            .then((res)=>{
+                setDetail(res)
+            })
+    },[id])
     return(
         <>       
         {detail.length === 0?(

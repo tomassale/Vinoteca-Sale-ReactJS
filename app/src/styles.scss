@@ -145,5 +145,38 @@ body{
             padding: 10px;
             font-size: 60px;
         }
+        footer {
+            height: max-content;
+            width: 100%;
+            padding: 1%;
+            margin-top: 200px;
+            background-color: rgba(0, 0, 0, 0.808);
+            color: rgb(219, 225, 230);
+            .copyright {
+                text-align: center;
+                padding: 8px;
+                font-size: 30px;
+            }
+            .redesSociales {
+                display: flex;
+                justify-content: space-evenly;
+                .redes {
+                    margin-top: 20px;
+                    h2 {
+                    text-align: center;
+                    }
+                    img {
+                    padding: 10px;
+                    }
+                }
+                .lorem {
+                    margin-top: 30px;
+                    h3{
+                    display: inline;
+                    padding: 20px;
+                    }
+                }
+            }
+        }
     }
 }
