@@ -20,17 +20,18 @@ const listaProductos = [
 const ItemListContainer = (props) =>{
     
     const [lista, setLista] = useState([])
-    const {id} = useParams()
+    let {categoriaId} = useParams()
 
     useEffect(()=>{
-            if(id){
-                const filtro = listaProductos.filter(fil => fil.categoria === id)
+        setTimeout(()=>{
+            if(categoriaId){
+                const filtro = listaProductos.filter(fil => fil.categoria === categoriaId)
                 setLista(filtro)
-                console.log(lista)
             }else{
                 setLista(listaProductos)
             }
-    }, [id])
+        }, 2000)
+    }, [categoriaId])
 
     return(
         <>

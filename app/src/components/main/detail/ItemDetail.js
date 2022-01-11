@@ -5,7 +5,7 @@ const ItemDetail = ({initial, producto}) => {
     const onAdd = (agregado)=>{
         alert(`Se agregaron ${agregado} al carrito`)
     }
-    return (
+    return(
         <div id='item'>
             <div className='flex'>
                 <div className='flexL'>
@@ -13,7 +13,6 @@ const ItemDetail = ({initial, producto}) => {
                     <img src={producto.imagen} alt='producto'/>
                 </div>
                 <div className='flexR'>
-                    <p id='descripcion'>{producto.descripcion}</p>
                     <p id='precio'>{producto.precio}$</p>
                     <ItemCount stock={producto.stock} initial={initial} onAdd={onAdd}/>
                 </div>

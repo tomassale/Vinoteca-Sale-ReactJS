@@ -2,17 +2,17 @@ import ItemDetail from "./ItemDetail"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
-const ItemDetailContainer=()=> {  
+const ItemDetailContainer=({listaProductos})=> {  
 
     let [detail, setDetail] = useState({})
     let {id} = useParams()
 
     useEffect(()=>{
-        fetch('/item/' + id)
-            .then((res)=>{
-                setDetail(res)
-            })
-    },[id])
+        if(id){
+            const filtro = listaProductos.find(fil=>fil.id === id)
+            setDetail(filtro)
+        }
+    }, [id])
     return(
         <>       
         {detail.length === 0?(

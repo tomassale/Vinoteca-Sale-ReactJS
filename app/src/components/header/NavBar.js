@@ -3,9 +3,9 @@ import {useState, useEffect} from "react"
 import {NavLink} from "react-router-dom"
 
 const links = [
-    {id: 1, nombre: "Vinos Tintos", href: "/Categoria/Tintos"},
-    {id: 2, nombre: "Vinos Blancos", href: "/Categoria/Blancos"},
-    {id: 3, nombre: "Vinos espumosos", href: "/Categoria/Espumosos"},
+    {id: 1, nombre: "Vinos Tintos", href: "/Categoria/Tinto"},
+    {id: 2, nombre: "Vinos Blancos", href: "/Categoria/Blanco"},
+    {id: 3, nombre: "Vinos espumosos", href: "/Categoria/Espumoso"},
     {id: 4, nombre: "Carrito", href: "/Carrito", icono: "shopping_cart"},
     {id: 5, nombre: "Contacto", href: "/Contacto", icono:"call"},
 ]
