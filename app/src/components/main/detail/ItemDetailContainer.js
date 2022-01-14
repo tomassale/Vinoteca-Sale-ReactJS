@@ -6,7 +6,7 @@ import {db} from '../../../fireBase'
 
 const ItemDetailContainer=()=> {  
 
-    const [detail, setDetail] = useState({})
+    const [detail, setDetail] = useState({});
     const {id} = useParams()
 
     useEffect(()=>{
