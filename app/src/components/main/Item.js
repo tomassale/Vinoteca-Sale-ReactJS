@@ -8,7 +8,7 @@ const Item = ({producto}) =>{
                 <div className="imagen">
                     <img src={producto.imagen} alt="vinos"/>
                 </div>
-                <NavLink to={`/item/${producto.id}`}>
+                <NavLink to={`/Item/${producto.id}`}>
                     <button>Detalles del Producto</button>
                 </NavLink>
             </div>

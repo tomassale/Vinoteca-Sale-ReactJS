@@ -1,22 +1,20 @@
 import ItemNavBar from "./ItemNavBar"
 import {useState, useEffect} from "react"
 import {NavLink} from "react-router-dom"
-
-const links = [
-    {id: 1, nombre: "Vinos Tintos", href: "/Categoria/Tinto"},
-    {id: 2, nombre: "Vinos Blancos", href: "/Categoria/Blanco"},
-    {id: 3, nombre: "Vinos espumosos", href: "/Categoria/Espumoso"},
-    {id: 4, nombre: "Carrito", href: "/Carrito", icono: "shopping_cart"},
-    {id: 5, nombre: "Contacto", href: "/Contacto", icono:"call"},
-]
+import { db } from '../../fireBase'
+import { collection, getDocs} from 'firebase/firestore'
 
 const NavBar = () =>{
     
     const [link, setLink] = useState([])
     
     useEffect(()=>{
-        setTimeout(()=>
-            setLink(link), 2000)
+        const linksCollection = collection(db, 'navBar')
+
+        getDocs(linksCollection)
+            .then(({docs})=>{
+                setLink(docs.map((doc)=>({id : doc.id, ...doc.data()})))
+            })
     }, [link])
     return(
         <header>
@@ -24,7 +22,7 @@ const NavBar = () =>{
             <h1>Casona Wine</h1>
             </NavLink>
             <ul>
-                <ItemNavBar links={links}/>
+                <ItemNavBar links={link}/>
             </ul>
         </header>
     )

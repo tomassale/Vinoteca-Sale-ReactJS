@@ -1,6 +1,6 @@
 import ItemCount from "../ItemCount"
 
-const ItemDetail = ({initial, producto}) => {
+const ItemDetail = ({initial, productoDetail}) => {
     
     const onAdd = (agregado)=>{
         alert(`Se agregaron ${agregado} al carrito`)
@@ -9,12 +9,13 @@ const ItemDetail = ({initial, producto}) => {
         <div id='item'>
             <div className='flex'>
                 <div className='flexL'>
-                    <h2>{producto.nombre}</h2>
-                    <img src={producto.imagen} alt='producto'/>
+                    <h2>{productoDetail.nombre}</h2>
+                    <img src={productoDetail.imagen} alt='producto'/>
                 </div>
                 <div className='flexR'>
-                    <p id='precio'>{producto.precio}$</p>
-                    <ItemCount stock={producto.stock} initial={initial} onAdd={onAdd}/>
+                    <p id='descripcion'>{productoDetail.descripcion}</p>
+                    <p id='precio'>{productoDetail.precio}$</p>
+                    <ItemCount stock={productoDetail.stock} initial={initial} onAdd={onAdd}/>
                 </div>
             </div>
         </div>
