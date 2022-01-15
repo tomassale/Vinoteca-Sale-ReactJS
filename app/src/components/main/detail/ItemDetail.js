@@ -4,10 +4,9 @@ import { useState } from "react"
 const ItemDetail = ({initial, productoDetail}) => {
     
     const [producto, setProducto] = useState([])
-    const valor = useState("")
     const onAdd = (agregado, e)=>{
-        alert(`Se agregaron ${agregado} ${productoDetail.stock} al carrito`)
-        setProducto([...producto, valor])
+        alert(`Se agregaron ${agregado} al carrito`)
+        setProducto(agregado)
         console.log(producto)
     }
 
