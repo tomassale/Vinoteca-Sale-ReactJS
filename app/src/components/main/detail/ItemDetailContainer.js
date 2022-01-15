@@ -17,6 +17,7 @@ const ItemDetailContainer=()=> {
             setDetail(res.data())
         })
     }, [id])
+    
     return(
         <>       
         {detail.length === 0?(

@@ -1,7 +1,10 @@
 const Carrito = () => {
     return (
         <div className="vacio">
-            <h1>Carrito</h1>
+            <h1>Elementos del Carrito</h1>
+            <div>
+                
+            </div>
         </div>
     )
 }

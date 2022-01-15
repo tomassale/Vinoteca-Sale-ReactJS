@@ -1,10 +1,16 @@
 import ItemCount from "../ItemCount"
+import { useState } from "react"
 
 const ItemDetail = ({initial, productoDetail}) => {
     
-    const onAdd = (agregado)=>{
-        alert(`Se agregaron ${agregado} al carrito`)
+    const [producto, setProducto] = useState([])
+    const valor = useState("")
+    const onAdd = (agregado, e)=>{
+        alert(`Se agregaron ${agregado} ${productoDetail.stock} al carrito`)
+        setProducto([...producto, valor])
+        console.log(producto)
     }
+
     return(
         <div id='item'>
             <div className='flex'>
@@ -19,7 +25,7 @@ const ItemDetail = ({initial, productoDetail}) => {
                 </div>
             </div>
         </div>
-    )
+        )
 }
 
 export default ItemDetail
