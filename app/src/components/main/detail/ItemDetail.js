@@ -1,18 +1,17 @@
 import ItemCount from "../ItemCount"
-import { useState} from "react"
+import { useState } from 'react'
 import { NavLink } from "react-router-dom"
 
 const ItemDetail = ({initial, productoDetail}) => {
     
     const [mostrar, setMostrar] = useState(true)
-    const [valor, setValor] = useState('')
     const[array, setArray] = useState([])
     const onAdd = (agregado)=>{
         alert(`Se agregaron ${agregado} al carrito`)
-        setValor(`${agregado}`)
-        setArray([...array, valor])
+        setArray([...array,agregado])
         setMostrar(false)
     }
+
     if(mostrar){
         return(
             <div id='item'>
