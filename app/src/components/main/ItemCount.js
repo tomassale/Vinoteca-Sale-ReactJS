@@ -1,13 +1,12 @@
 import {useState} from "react"
-import { NavLink } from "react-router-dom"
 
 const ItemCount = ({stock, onAdd}) =>{
     
     const initial = 1
-    let [contador, setContador] = useState(1)
+    const [contador, setContador] = useState(1)
     let sumar = ()=>{setContador(contador + 1)}
     let restar = ()=>{setContador(contador - 1)}
-    let agregar = ()=>{
+    const agregar = ()=>{
         onAdd(contador)
         setContador(initial)
     }
@@ -27,9 +26,7 @@ const ItemCount = ({stock, onAdd}) =>{
                 <button onClick={sumar}>+</button>
             </div>
             <div className="agregarAlCarrito">
-                <NavLink to={'/Carrito'}>
-                    <button onClick={agregar}>Agregar al Carrito</button>
-                </NavLink>
+                <button onClick={agregar}>Agregar al Carrito</button>
             </div>
         </div>
     )

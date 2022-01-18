@@ -9,6 +9,7 @@ const NavBar = () =>{
     const [link, setLink] = useState([])
     
     useEffect(()=>{
+
         const linksCollection = collection(db, 'navBar')
 
         getDocs(linksCollection)
@@ -16,6 +17,7 @@ const NavBar = () =>{
                 setLink(docs.map((doc)=>({id : doc.id, ...doc.data()})))
             })
     }, [link])
+    
     return(
         <header>
             <NavLink to="/">

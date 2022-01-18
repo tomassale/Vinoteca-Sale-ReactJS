@@ -102,6 +102,17 @@ body{
                     #descripcion{
                         font-size: 30px;
                     }
+                    #finalizar{
+                        height: 40px;
+                        width: 250px;
+                        background-color: rgb(252, 221, 183);
+                        font-size: 23px;
+                        margin-top: 9px;
+                    }
+                    #finalizar:hover{
+                        color: rgb(243, 202, 139);
+                        background-color: rgb(243, 159, 33);
+                    }
                     .botones{
                         margin: auto;
                         text-align: center;
@@ -146,7 +157,7 @@ body{
             padding: 10px;
             font-size: 60px;
         }
-        footer {
+        footer{
             height: max-content;
             width: 100%;
             padding: 1%;
