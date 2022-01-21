@@ -3,6 +3,7 @@ import {useState, useEffect} from "react"
 import {NavLink} from "react-router-dom"
 import { db } from '../../fireBase'
 import { collection, getDocs} from 'firebase/firestore'
+import CartWidget from "./CartWidget"
 
 const NavBar = () =>{
     
@@ -20,12 +21,15 @@ const NavBar = () =>{
     
     return(
         <header>
-            <NavLink to="/">
-            <h1>Casona Wine</h1>
-            </NavLink>
-            <ul>
-                <ItemNavBar links={link}/>
-            </ul>
+            <nav>
+                <NavLink to="/">
+                    <h1 id='casonaWine'>Casona Wine</h1>
+                </NavLink>               
+                <ul>
+                    <ItemNavBar links={link}/>
+                    <CartWidget/>
+                </ul>
+            </nav>
         </header>
     )
 }

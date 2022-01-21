@@ -28,16 +28,16 @@ const ItemListContainer = (props) =>{
     }, [categoriaId])
 
     return(
-        <>
-        <h1 id="greeting">Hola {props.greeting}!!</h1>
-        {lista.length === 0? (
-            <h2>Cargando...</h2>
-        ): (
-            <div className="grid">
-                <ItemList prop={lista}/>
-            </div>
-        )}
-        </>
+        <div id="index">
+            <h1 id="greeting">Hola {props.greeting}!!</h1>
+            {lista.length === 0? (
+                <h2>Cargando...</h2>
+            ): (
+                <div className="grid">
+                    <ItemList prop={lista}/>
+                </div>
+            )}
+        </div>
     )
 }
 export default ItemListContainer

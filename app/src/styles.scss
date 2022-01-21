@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Luxurious+Roman&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 *{
     padding: 0;
     margin: 0;
@@ -14,28 +16,32 @@ body{
             height: 70px;
             margin-top: 10px;
             background-color: rgb(248, 211, 156);
-            h1{
+            #casonaWine{
                 font-size: 50px;
                 display: inline;
                 padding: 10px;
+                font-weight: 300;
             }
             ul{
                 float: right;
-                margin-right: 60px;
                 li{
                     display: inline;
-                    padding: 20px;
-                    a{
-                        font-size: 40px;
-                    }
-                    a:hover{
-                        color: rgb(201, 157, 92);
-                    }
+                    margin-left: 20px;
+                    margin-right: 20px;
+                    font-size: 45px;
                     .material-icons{
                         font-size: 30px;
                     }
                 }
+                li:hover{
+                    color: rgb(201, 157, 92);
+                }
             }
+        }
+        #greeting{
+            text-align: center;
+            padding: 30px;
+            font-size: 60px;
         }
         .grid{
                 margin-bottom: 40px;
@@ -52,7 +58,7 @@ body{
                 text-align: center;
                 background-color: rgb(245, 174, 82);
                 div {
-                    font-family: 'Pushster',cursive;
+                    
                     .nombre {
                         font-size: 32px;
                         margin-top: 10px;
@@ -152,10 +158,18 @@ body{
                 }
             }
         }
-        #greeting{
-            text-align: center;
-            padding: 10px;
-            font-size: 60px;
+        #carrito{
+            h1{
+                text-align: center;
+                padding: 30px;
+                font-size: 60px;
+            }
+            p{
+                float: right;
+                margin-right: 100px;
+                font-size: 40px;
+            }
+
         }
         footer{
             height: max-content;

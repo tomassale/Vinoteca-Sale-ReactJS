@@ -1,19 +1,19 @@
 import ItemCount from "../ItemCount"
 import { useState } from 'react'
 import { NavLink } from "react-router-dom"
+import { useContexto } from "../../../context"
 
 const ItemDetail = ({initial, productoDetail}) => {
     
+    const {agregarCarrito} = useContexto()
     const [mostrar, setMostrar] = useState(true)
     const[array, setArray] = useState([])
     const onAdd = (agregado)=>{
-        alert(`Se agregaron ${agregado} al carrito`)
         setArray([...array,agregado])
+        agregarCarrito(agregado, productoDetail)
         setMostrar(false)
     }
-
-    if(mostrar){
-        return(
+    return(
             <div id='item'>
                 <div className='flex'>
                     <div className='flexL'>
@@ -23,31 +23,16 @@ const ItemDetail = ({initial, productoDetail}) => {
                     <div className='flexR'>
                         <p id='descripcion'>{productoDetail.descripcion}</p>
                         <p id='precio'>{productoDetail.precio}$</p>
-                        <ItemCount stock={productoDetail.stock} initial={initial} onAdd={onAdd}/>
+                        {mostrar?(<ItemCount stock={productoDetail.stock} initial={initial} onAdd={onAdd}/>
+                        ):(
+                        <NavLink to={'/Carrito'}>
+                            <button id='finalizar'>Finalizar Compra</button>
+                        </NavLink>
+                        )}
                     </div>
                 </div>
             </div>
-        )
-    }
-    else{
-        return(
-        <div id='item'>
-            <div className='flex'>
-                <div className='flexL'>
-                    <h2>{productoDetail.nombre}</h2>
-                    <img src={productoDetail.imagen} alt='producto'/>
-                </div>
-                <div className='flexR'>
-                    <p id='descripcion'>{productoDetail.descripcion}</p>
-                    <p id='precio'>{productoDetail.precio}$</p>
-                    <NavLink to={'/Carrito'}>
-                        <button id='finalizar'>Finalizar Compra</button>
-                    </NavLink>
-                </div>
-            </div>
-        </div>
-        )
-    }
+    )
 }
 
 export default ItemDetail
