@@ -36,6 +36,9 @@ body{
                 li:hover{
                     color: rgb(201, 157, 92);
                 }
+                #none{
+                    display: none;
+                }
             }
         }
         #greeting{
@@ -108,14 +111,14 @@ body{
                     #descripcion{
                         font-size: 30px;
                     }
-                    #finalizar{
+                    .finalizar{
                         height: 40px;
                         width: 250px;
                         background-color: rgb(252, 221, 183);
                         font-size: 23px;
                         margin-top: 9px;
                     }
-                    #finalizar:hover{
+                    .finalizar:hover{
                         color: rgb(243, 202, 139);
                         background-color: rgb(243, 159, 33);
                     }
@@ -165,17 +168,38 @@ body{
                 font-size: 60px;
             }
             p{
-                float: right;
-                margin-right: 100px;
+                margin-right: 130px;
                 font-size: 40px;
+                float: right;
             }
-
+            .contenedor{
+                padding: 80px;
+                #carritoVacio{
+                    h2{
+                        text-align: center;
+                        margin-top: 30px;
+                    }
+                }
+                #carritoProductos{
+                    ul{
+                        padding: 10px;
+                        ol{
+                            flex-direction: none;
+                            height: 120px;
+                            width: 200px;
+                        }
+                        button{
+                            background-color: red;
+                        }
+                    }
+                }
+            }
         }
         footer{
             height: max-content;
             width: 100%;
             padding: 1%;
-            margin-top: 200px;
+            margin-top: 450px;
             background-color: rgba(0, 0, 0, 0.808);
             color: rgb(219, 225, 230);
             .copyright {

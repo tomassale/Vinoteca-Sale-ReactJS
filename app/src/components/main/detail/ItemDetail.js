@@ -10,7 +10,7 @@ const ItemDetail = ({initial, productoDetail}) => {
     const[array, setArray] = useState([])
     const onAdd = (agregado)=>{
         setArray([...array,agregado])
-        agregarCarrito(agregado, productoDetail)
+        agregarCarrito(productoDetail, agregado )
         setMostrar(false)
     }
     return(
@@ -26,7 +26,7 @@ const ItemDetail = ({initial, productoDetail}) => {
                         {mostrar?(<ItemCount stock={productoDetail.stock} initial={initial} onAdd={onAdd}/>
                         ):(
                         <NavLink to={'/Carrito'}>
-                            <button id='finalizar'>Finalizar Compra</button>
+                            <button className='finalizar'>Finalizar Compra</button>
                         </NavLink>
                         )}
                     </div>

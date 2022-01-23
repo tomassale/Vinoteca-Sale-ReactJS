@@ -13,29 +13,37 @@ const CustomProvider = ({children}) =>{
     const [valorTotal, setValorTotal] = useState(0)
     
     const agregarCarrito = (agregado, productoDetail) =>{
-        if(isInCart){
-            const copiaProducto = {...productoDetail} 
-            copiaProducto.agregado= agregado
-            setCarrito ([...carrito, copiaProducto]) 
-            setCantidadTotal (cantidadTotal + agregado) 
-            const precioCantidad= copiaProducto.precio*agregado
-            setValorTotal (valorTotal + precioCantidad)
+        const id = productoDetail.id
+        const copiaCarrito = [...carrito]
+        if(isInCart(id)){
+            let match = copiaCarrito.find((p)=>p.id === productoDetail.id)
+            match.agregado = match.agregado + agregado
+            setCarrito(copiaCarrito)
+        }else{
+            const copiaProducto = {...productoDetail}
+            copiaProducto.agregado = agregado
+            setCarrito ([...carrito, copiaProducto])
         }
+        productoDetail.map((e)=>{
+            const valorCantidad = e.precio*agregado
+            return(
+                setValorTotal(valorTotal + valorCantidad)
+            )
+        })
+        setCantidadTotal (cantidadTotal + agregado)
     }
-    const borrarCarrito = (id, agregado) =>{
-        const filtroCarrito = carrito.filter(item => item.id !== id)        
-        if (valorTotal > 0) {
-            setCarrito (filtroCarrito)       
-            setValorTotal (valorTotal - agregado)
-            filtroCarrito.map ((e) =>{
-                const valorFinal = e.precio*agregado
-                return(
-                    setValorTotal(valorFinal)
-                )
-            })
-        } else {
-            setValorTotal (0)
-        }
+    const borrarCarrito = (id, cantidad) =>{
+        let carritoFiltrado = carrito.filter((e)=>e.id !== id)
+        setCarrito(carritoFiltrado)
+        setCantidadTotal(cantidadTotal - cantidad)
+        let valorFiltrado = 0
+        carritoFiltrado.map ((e)=> {
+            const valorNuevo = e.precio*cantidad
+            valorFiltrado += valorNuevo
+            return(
+                setValorTotal(valorFiltrado)  
+            )
+        })
     }
     const limpiarCarrito = () =>{
         setCarrito([])
@@ -43,7 +51,7 @@ const CustomProvider = ({children}) =>{
         setValorTotal(0)
     }
     const isInCart = (id) =>{
-        return carrito.some(item => item.id = id)
+        return carrito.some(p => p.id === id)
     } 
     const valorContexto = {
         carrito,
