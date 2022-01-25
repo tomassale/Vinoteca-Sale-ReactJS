@@ -88,8 +88,8 @@ body{
             .flex{
                 text-align: center;
                 display: flex;
-                height: 500px;
-                width: 900px;
+                height: max-content;
+                width: max-content;
                 .flexL{
                     height: 500px;
                     width: 500px;
@@ -170,10 +170,10 @@ body{
             p{
                 margin-right: 130px;
                 font-size: 40px;
-                float: right;
+                margin-bottom: 20px;
+                text-align: end;
             }
             .contenedor{
-                padding: 80px;
                 #carritoVacio{
                     h2{
                         text-align: center;
@@ -182,7 +182,6 @@ body{
                 }
                 #carritoProductos{
                     ul{
-                        padding: 10px;
                         ol{
                             flex-direction: none;
                             height: 120px;

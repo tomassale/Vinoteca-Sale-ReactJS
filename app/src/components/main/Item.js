@@ -4,11 +4,11 @@ const Item = ({producto}) =>{
     return(
         <div className="item">
             <div>
-                <p className="nombre">{producto.nombre}</p>
+                <p className="nombre">{producto.title}</p>
                 <div className="imagen">
-                    <img src={producto.imagen} alt="vinos"/>
+                    <img src={producto.image} alt="vinos"/>
                 </div>
-                <NavLink to={`/Item/${producto.id}`}>
+                <NavLink to={`/producto/${producto.id}`}>
                     <button>Detalles del Producto</button>
                 </NavLink>
             </div>

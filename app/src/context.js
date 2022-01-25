@@ -12,38 +12,27 @@ const CustomProvider = ({children}) =>{
     const [carrito, setCarrito] = useState([])
     const [valorTotal, setValorTotal] = useState(0)
     
-    const agregarCarrito = (agregado, productoDetail) =>{
+    const agregarCarrito = (cantidad,productoDetail) =>{
         const id = productoDetail.id
-        const copiaCarrito = [...carrito]
         if(isInCart(id)){
+            const copiaCarrito = [...carrito]
             let match = copiaCarrito.find((p)=>p.id === productoDetail.id)
-            match.agregado = match.agregado + agregado
-            setCarrito(copiaCarrito)
+            match.cantidad = match.cantidad + cantidad
+            setCarrito([...copiaCarrito])
         }else{
-            const copiaProducto = {...productoDetail}
-            copiaProducto.agregado = agregado
+            const copiaProducto = {...productoDetail, cantidad}
             setCarrito ([...carrito, copiaProducto])
         }
-        productoDetail.map((e)=>{
-            const valorCantidad = e.precio*agregado
-            return(
-                setValorTotal(valorTotal + valorCantidad)
-            )
-        })
-        setCantidadTotal (cantidadTotal + agregado)
+        const copiaProductoValor = {...productoDetail, cantidad}
+        const valorCantidad = copiaProductoValor.price*cantidad
+        setValorTotal(valorTotal + valorCantidad)
+        setCantidadTotal (cantidadTotal + cantidad)
     }
-    const borrarCarrito = (id, cantidad) =>{
-        let carritoFiltrado = carrito.filter((e)=>e.id !== id)
-        setCarrito(carritoFiltrado)
+    const borrarCarrito = (id, cantidad, price) =>{ 
+        const filtro = carrito.filter(e=>(e.id) !== id)
+        setCarrito(filtro)
         setCantidadTotal(cantidadTotal - cantidad)
-        let valorFiltrado = 0
-        carritoFiltrado.map ((e)=> {
-            const valorNuevo = e.precio*cantidad
-            valorFiltrado += valorNuevo
-            return(
-                setValorTotal(valorFiltrado)  
-            )
-        })
+        setValorTotal (valorTotal - price*cantidad)
     }
     const limpiarCarrito = () =>{
         setCarrito([])

@@ -1,8 +1,7 @@
 import ItemList from "./ItemList"
 import { useEffect, useState} from "react"
 import { useParams } from "react-router-dom"
-import { db } from '../../fireBase'
-import { collection, getDocs, query, where } from 'firebase/firestore' 
+
 
 const ItemListContainer = (props) =>{
     
@@ -10,23 +9,20 @@ const ItemListContainer = (props) =>{
     const {categoriaId} = useParams()
 
     useEffect(()=>{
-        
-        const productosCollection = collection(db, 'listaProductos')
-        
+        let promesa
         if(categoriaId){
-            const consulta = query(productosCollection,where('categoria','==',categoriaId))
-            getDocs(consulta)
-            .then(({docs})=>{
-                setLista(docs.map((doc)=>({ id : doc.id, ...doc.data()})))
-            })
+            promesa = fetch(`https://fakestoreapi.com/products/category/${categoriaId}`)
         }else{
-            getDocs(productosCollection)
-            .then(({docs})=>{
-                setLista(docs.map((doc)=>({ id : doc.id, ...doc.data()})))
-            })
+            promesa = fetch(`https://fakestoreapi.com/products`)
         }
+        promesa
+        .then((res)=>res.json())
+        .then((res)=>{
+            setLista(res)
+        })
     }, [categoriaId])
 
+    
     return(
         <div id="index">
             <h1 id="greeting">Hola {props.greeting}!!</h1>
