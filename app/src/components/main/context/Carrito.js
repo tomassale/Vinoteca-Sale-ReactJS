@@ -1,13 +1,28 @@
 import { useContexto } from "../../../context"
 import { NavLink } from 'react-router-dom'
 import { ListGroup, Badge} from 'react-bootstrap'
-
+import { addDoc, collection, serverTimestamp} from "firebase/firestore"
+import { db } from '../../../fireBase'
 
 const Carrito = () => {
     
     const {carrito, borrarCarrito, limpiarCarrito, valorTotal} = useContexto()
     const finalizarCompra = () =>{
-        limpiarCarrito()
+        const ventasCollection = collection(db,"ventas")
+        addDoc(ventasCollection,{
+            comprador: {
+                nombre: "Tomás",
+                apellido: "Sale",
+                telefono: "+54 9 11 5488-9684",
+                email: "algo@gmail.com",
+                total: valorTotal,
+            },
+            items: carrito,
+            fecha: serverTimestamp(),
+        })
+        .then(()=>{
+            limpiarCarrito()
+        })
     }
     return (
         <div id='carrito'>
@@ -29,13 +44,13 @@ const Carrito = () => {
                                     <ListGroup as="ul">
                                         <ListGroup.Item as="li" className="d-flex justify-content-between align-items-start">
                                             <div className="ms-2 me-auto">
-                                                <div className="fw-bold">{productoDetail.title}</div>
-                                                <div className="fw">$ {productoDetail.price*productoDetail.cantidad}</div>
+                                                <div className="fw-bold">{productoDetail.nombre}</div>
+                                                <div className="fw">$ {productoDetail.precio*productoDetail.cantidad}</div>
                                             </div>
                                             <Badge variant="primary" pill>{productoDetail.cantidad}</Badge>
                                         </ListGroup.Item>
                                     </ListGroup>
-                                    <button onClick={()=>{borrarCarrito(productoDetail.id, productoDetail.cantidad, productoDetail.price)}}>X</button>                                    
+                                    <button onClick={()=>{borrarCarrito(productoDetail.id, productoDetail.cantidad, productoDetail.precio)}}>X</button>                                    
                                 </div>
                             )
                         })}

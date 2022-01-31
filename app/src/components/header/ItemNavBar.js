@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 
-const ItemNavBar = ({ link }) => {
+const ItemNavBar = ({ links }) => {
   return (
     <>
-      {link.map((mapeo) => {
+      {links.map((mapeo) => {
         return (
             <li key={mapeo.id}>
               <NavLink  to={mapeo.href}>

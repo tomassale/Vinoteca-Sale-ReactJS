@@ -1,6 +1,8 @@
 import ItemDetail from "./ItemDetail"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import {collection , doc , getDoc} from 'firebase/firestore'
+import {db} from '../../../fireBase'
 
 const ItemDetailContainer=()=> {  
 
@@ -8,10 +10,11 @@ const ItemDetailContainer=()=> {
     const {id} = useParams()
 
     useEffect(()=>{
-        fetch(`https://fakestoreapi.com/products/${id}`)
-            .then((res)=>res.json())
+        const productosCollection = collection(db, 'listaProductos')
+        const refDoc = doc(productosCollection, id)
+        getDoc(refDoc)
             .then((res)=>{
-                setDetail(res)
+                setDetail(res.data())
             })
     }, [id])
     

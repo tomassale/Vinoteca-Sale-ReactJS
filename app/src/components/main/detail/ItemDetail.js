@@ -17,12 +17,12 @@ const ItemDetail = ({initial, productoDetail}) => {
             <div id='item'>
                 <div className='flex'>
                     <div className='flexL'>
-                        <h2>{productoDetail.title}</h2>
-                        <img src={productoDetail.image} alt='producto'/>
+                        <h2>{productoDetail.nombre}</h2>
+                        <img src={productoDetail.imagen} alt='producto'/>
                     </div>
                     <div className='flexR'>
-                        <p id='descripcion'>{productoDetail.description}</p>
-                        <p id='precio'>{productoDetail.price}$</p>
+                        <p id='descripcion'>{productoDetail.descripcion}</p>
+                        <p id='precio'>{productoDetail.precio}$</p>
                         {mostrar?(<ItemCount stock={productoDetail.stock} initial={initial} onAdd={onAdd}/>
                         ):(
                         <NavLink to={'/Carrito'}>

@@ -1,23 +1,23 @@
 import ItemNavBar from "./ItemNavBar"
 import {useState, useEffect} from "react"
 import {NavLink} from "react-router-dom"
+import { db } from '../../fireBase'
+import { collection, getDocs} from 'firebase/firestore'
 import CartWidget from "./CartWidget"
-
-const links = [
-
-    {id:2, href: "/categoria/electronics", nombre:"Tecnologia"},
-    {id:3, href: "/categoria/jewelery", nombre:"Joyeria"},
-    {id:4, href: "/categoria/men's clothing", nombre: "Ropa de hombre"},
-    {id:5, href: "/categoria/women's clothing", nombre: "Ropa de mujer"}
-]
 
 const NavBar = () =>{
     
     const [link, setLink] = useState([])
+    
     useEffect(()=>{
-        setLink(link)
-    }, [link])
 
+        const linksCollection = collection(db, 'navBar')
+        getDocs(linksCollection)
+            .then(({docs})=>{
+                setLink(docs.map((doc)=>({id : doc.id, ...doc.data()})))
+            })
+    }, [link])
+    
     return(
         <header>
             <nav>
@@ -25,7 +25,7 @@ const NavBar = () =>{
                     <h1 id='casonaWine'>Casona Wine</h1>
                 </NavLink>               
                 <ul>
-                    <ItemNavBar link={links}/>
+                    <ItemNavBar links={link}/>
                     <CartWidget/>
                 </ul>
             </nav>
