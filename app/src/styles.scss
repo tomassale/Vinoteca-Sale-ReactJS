@@ -1,59 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Luxurious+Roman&display=swap');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Luxurious+Roman&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+* {
     padding: 0;
     margin: 0;
-    font-family: 'Lobster', cursive;
+    font-family: "Lobster", cursive;
 }
-a{
+a {
     color: black;
     text-decoration: none;
 }
-body{
+body {
     background-color: blanchedalmond;
-    #root{
-        header{
+    #root {
+        header {
             height: 70px;
             margin-top: 10px;
             background-color: rgb(248, 211, 156);
-            #casonaWine{
+            #casonaWine {
                 font-size: 50px;
                 display: inline;
                 padding: 10px;
                 font-weight: 300;
             }
-            ul{
+            ul {
                 float: right;
-                li{
+                li {
                     display: inline;
                     margin-left: 20px;
                     margin-right: 20px;
                     font-size: 45px;
-                    .material-icons{
+                    .material-icons {
                         font-size: 30px;
                     }
                 }
-                li:hover{
-                    color: rgb(201, 157, 92);
-                }
-                #none{
-                    display: none;
-                }
             }
         }
-        #greeting{
+        #greeting {
             text-align: center;
             padding: 30px;
             font-size: 60px;
         }
-        .grid{
-                margin-bottom: 40px;
-                display: grid;
-                grid-template-columns: repeat(3, 200px);
-                grid-template-rows: repeat(4, 200px);
-                grid-column-gap: 180px;
-                grid-row-gap: 200px;
-                justify-content: center;
+        .grid {
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 200px);
+            grid-template-rows: repeat(4, 200px);
+            grid-column-gap: 180px;
+            grid-row-gap: 200px;
+            justify-content: center;
             .item {
                 height: 325px;
                 width: 280px;
@@ -61,7 +56,6 @@ body{
                 text-align: center;
                 background-color: rgb(245, 174, 82);
                 div {
-                    
                     .nombre {
                         font-size: 32px;
                         margin-top: 10px;
@@ -81,58 +75,58 @@ body{
                 }
             }
         }
-        #item{
+        #item {
             margin: 200px 430px 50px 520px;
             border: 10px black dotted;
-            background-color: rgb(238, 190, 132) ;
-            .flex{
+            background-color: rgb(238, 190, 132);
+            .flex {
                 text-align: center;
                 display: flex;
                 height: max-content;
                 width: max-content;
-                .flexL{
+                .flexL {
                     height: 500px;
                     width: 500px;
-                    h2{
-                        font-size: 70px;
+                    h2 {
+                        font-size: 60px;
                     }
-                    img{
+                    img {
                         height: 400px;
                         width: 400px;
                     }
                 }
-                .flexR{
+                .flexR {
                     height: 300px;
-                    width: 500px;
+                    width: 400px;
                     margin-top: 100px;
-                    #precio{
+                    #precio {
                         font-size: 50px;
                     }
-                    #descripcion{
+                    #descripcion {
                         font-size: 30px;
                     }
-                    .finalizar{
+                    .finalizar {
                         height: 40px;
                         width: 250px;
                         background-color: rgb(252, 221, 183);
                         font-size: 23px;
                         margin-top: 9px;
                     }
-                    .finalizar:hover{
+                    .finalizar:hover {
                         color: rgb(243, 202, 139);
                         background-color: rgb(243, 159, 33);
                     }
-                    .botones{
+                    .botones {
                         margin: auto;
                         text-align: center;
                         background-color: rgb(248, 188, 114);
                         height: 110px;
                         width: 300px;
-                        .contador{
+                        .contador {
                             display: flex;
                             background-color: rgb(253, 228, 191);
                             width: 300px;
-                            button{
+                            button {
                                 border: 0px;
                                 background-color: initial;
                                 padding: 7px;
@@ -141,15 +135,15 @@ body{
                                 font-size: 25px;
                                 color: rgb(70, 49, 21);
                             }
-                            p{
+                            p {
                                 width: 20px;
                                 height: 20px;
                                 padding: 10px;
                                 font-size: 25px;
                             }
                         }
-                        .agregarAlCarrito{
-                            button{
+                        .agregarAlCarrito {
+                            button {
                                 height: 40px;
                                 width: 250px;
                                 background-color: rgb(252, 221, 183);
@@ -161,40 +155,158 @@ body{
                 }
             }
         }
-        #carrito{
-            h1{
+        .registro {
+            background-image: url(../public/img/fondo/fondoCorchoR.jpg);
+            background-size: cover;
+            .formulario {
+                background-color: #f3d6b3;
+                height: auto;
+                width: 16cm;
+                margin: auto;
+                margin-bottom: 30px;
+                border: dotted 10px #f1b872;
+                font-size: 36px;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                h1{
+                background-color: bisque;
+                font-size: 140px;
+                color: rgb(240, 173, 86);
+                text-align: center;
+                }
+                .texto {
+                width: 5cm;
+                height: 26px;
+                }
+                .texto:focus {
+                width: 6cm;
+                height: 30px;
+                font-size: 16px;
+                }
+                .button {
+                background-color: #fdcc8b;
+                width: 4cm;
+                height: 38px;
+                font-size: 28px;
+                }
+                .menu {
+                width: 7cm;
+                height: 30px;
+                font-size: 20px;
+                background-color: #ffcd91;
+                }
+            }
+        }
+        .carrito {
+            h1 {
                 text-align: center;
                 padding: 30px;
                 font-size: 60px;
             }
-            p{
+            p {
                 margin-right: 130px;
                 font-size: 40px;
                 margin-bottom: 20px;
                 text-align: end;
             }
-            .contenedor{
-                #carritoVacio{
-                    h2{
-                        text-align: center;
-                        margin-top: 30px;
-                    }
+            .carritoVacio {
+                text-align: center;
+                h2 {
+                    margin-top: 110px;
+                    font-size: 40px;
                 }
-                #carritoProductos{
-                    ul{
-                        ol{
-                            flex-direction: none;
-                            height: 120px;
-                            width: 200px;
+                button {
+                    border-radius: 50px;
+                    margin-top: 120px;
+                    font-size: 25px;
+                    background-color: transparent;
+                    background-color: rgb(255, 218, 170);
+                    padding: 5px;
+                }
+                button:hover {
+                    color: rgb(214, 172, 109);
+                }
+            }
+            .carritoProductos {
+                margin-top: 100px;
+                ul{
+                    .productoCarrito {
+                        text-decoration: none;
+                        display: flex;
+                        width: 1300px;
+                        height: max-content;
+                        margin-left: auto;
+                        margin-right: auto;
+                        margin-top: 10px;
+                        background-color: rgb(250, 212, 158);
+                        border: double 1px rgb(236, 186, 116);
+                        .imagenC {
+                            margin-left: 15px;
+                            img{
+                                width: 97px;
+                                height: 97px;
+                            }
                         }
-                        button{
-                            background-color: red;
+                        .nombre {
+                            margin-left: 70px;
+                            margin-top: 18px;
+                            width: 370px;
+                            h4 {
+                                font-size: 45px;
+                            }
+                        }
+                        .valorUnitario {
+                            margin-left: 140px;
+                            margin-top: 14px;
+                            p {
+                                font-size: 40px;
+                            }
+                        }
+                        .cantidadAgregada {
+                            font-size: 25px;
+                        }
+                        .equis {
+                            margin: 25px  25px 25px;
+                            button {
+                                font-size: 30px;
+                                background-color: transparent;
+                                border: 0px;
+                            }
                         }
                     }
                 }
             }
+            #limpiar {
+                text-align: center;
+                font-size: 25px;
+                float: right;
+                margin: 20px 10cm;
+                button {
+                    background-color: rgb(255, 207, 134);
+                    border-radius: 6px;
+                    padding: 4px;
+                }
+                button:hover {
+                    color: rgb(206, 163, 99);
+                }
+            }
+            #finalizar {
+                text-align: center;
+                margin-top: 150px;
+                button {
+                    border-radius: 50px;
+                    font-size: 25px;
+                    background-color: transparent;
+                    background-color: rgb(255, 218, 170);
+                    padding: 5px;
+                }
+                button:hover {
+                    color: rgb(214, 172, 109);
+                }
+            }
         }
-        footer{
+        footer {
             height: max-content;
             width: 100%;
             padding: 1%;
@@ -212,17 +324,17 @@ body{
                 .redes {
                     margin-top: 20px;
                     h2 {
-                    text-align: center;
+                        text-align: center;
                     }
                     img {
-                    padding: 10px;
+                        padding: 10px;
                     }
                 }
                 .lorem {
                     margin-top: 30px;
-                    h3{
-                    display: inline;
-                    padding: 20px;
+                    h3 {
+                        display: inline;
+                        padding: 20px;
                     }
                 }
             }

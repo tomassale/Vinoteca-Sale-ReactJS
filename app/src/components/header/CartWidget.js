@@ -5,15 +5,11 @@ const CartWidget = () => {
     const {cantidadTotal} = useContexto()
     return(
         <>
-            {cantidadTotal === 0?(
-                null
-            ):(
-                <li>
-                    <NavLink to={"/Carrito"}>
-                        Carrito<span className="material-icons">shopping_cart</span>{cantidadTotal}
-                    </NavLink>
-                </li>
-            )}
+            <li>
+                <NavLink to={"/Carrito"}>
+                    Carrito<span className="material-icons">shopping_cart</span>{cantidadTotal===0?(null):(cantidadTotal)}
+                </NavLink>
+            </li>
         </>
     )
 }

@@ -1,6 +1,6 @@
 import { useContexto } from "../../../context"
 import { NavLink } from 'react-router-dom'
-import { ListGroup, Badge} from 'react-bootstrap'
+import { Badge } from 'react-bootstrap'
 import { addDoc, collection, serverTimestamp} from "firebase/firestore"
 import { db } from '../../../fireBase'
 
@@ -25,7 +25,7 @@ const Carrito = () => {
         })
     }
     return (
-        <div id='carrito'>
+        <div className='carrito'>
             <h1>Carrito de compras</h1>
             <p>Valor total: $ {valorTotal}</p>
             <>
@@ -35,28 +35,41 @@ const Carrito = () => {
                         <NavLink to="/">
                             <button>Seguir comprando</button>
                         </NavLink>              
-                </div>
-                ) : (
-                    <div className='carritoProductos'>
-                        {carrito.map ((productoDetail) => { 
-                            return(
-                                <div key={productoDetail.id}>
-                                    <ListGroup as="ul">
-                                        <ListGroup.Item as="li" className="d-flex justify-content-between align-items-start">
-                                            <div className="ms-2 me-auto">
-                                                <div className="fw-bold">{productoDetail.nombre}</div>
-                                                <div className="fw">$ {productoDetail.precio*productoDetail.cantidad}</div>
-                                            </div>
-                                            <Badge variant="primary" pill>{productoDetail.cantidad}</Badge>
-                                        </ListGroup.Item>
-                                    </ListGroup>
-                                    <button onClick={()=>{borrarCarrito(productoDetail.id, productoDetail.cantidad, productoDetail.precio)}}>X</button>                                    
-                                </div>
-                            )
-                        })}
-                        <button id='limpiar' onClick={limpiarCarrito}>Limpiar Carrito</button>
-                        <button id='finalizar' onClick={finalizarCompra}>Finalizar Compra</button>
                     </div>
+                ) : (
+                    <>
+                        <div className='carritoProductos'>
+                            {carrito.map ((productoDetail) => { 
+                                return(
+                                        <ul>
+                                            <li key={productoDetail.id} className='productoCarrito'>
+                                                <div className='imagenC'>
+                                                    <img alt='producto' src={productoDetail.imagen}/>
+                                                </div>
+                                                <div className="cantidadAgregada"> 
+                                                    <Badge variant="primary" pill>{productoDetail.cantidad}</Badge>
+                                                </div>
+                                                <div className="nombre">
+                                                    <h4>{productoDetail.nombre}</h4>
+                                                </div>
+                                                <div className="valorUnitario">
+                                                    <p>Valor unitario: $ {productoDetail.precio*productoDetail.cantidad}</p>
+                                                </div>
+                                                <div className="equis">
+                                                    <button  onClick={()=>{borrarCarrito(productoDetail.id, productoDetail.cantidad, productoDetail.precio)}}>X</button>                                    
+                                                </div>
+                                            </li>
+                                        </ul>
+                                )
+                            })}
+                        </div>
+                        <div id='limpiar'>
+                            <button onClick={limpiarCarrito}>Limpiar Carrito</button>
+                        </div>
+                        <div id='finalizar'>
+                            <button onClick={finalizarCompra}>Finalizar Compra</button>
+                        </div>
+                    </>
                 )}
             </>
         </div>

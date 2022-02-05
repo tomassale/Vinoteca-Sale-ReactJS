@@ -15,10 +15,9 @@ const CustomProvider = ({children}) =>{
     const agregarCarrito = (cantidad, productoDetail) =>{
         const id = productoDetail.id
         if(isInCart(id)){
-            const copiaCarrito = [...carrito]
-            let match = copiaCarrito.find((p)=>p.id === productoDetail.id)
+            let match = carrito.find((p)=>p.id === id)
             match.cantidad = match.cantidad + cantidad
-            setCarrito([match, ...copiaCarrito])
+            setCarrito(match)
         }else{
             const copiaProducto = {...productoDetail, cantidad}
             setCarrito ([...carrito, copiaProducto])
