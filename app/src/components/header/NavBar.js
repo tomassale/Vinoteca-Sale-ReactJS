@@ -2,7 +2,6 @@ import {useState, useEffect} from 'react'
 import {NavLink} from 'react-router-dom'
 import { db } from '../../fireBase'
 import { collection, getDocs} from 'firebase/firestore'
-import Authentication from './Authentication'
 import ItemNavBar from './ItemNavBar'
 import CartWidget from './CartWidget'
 
@@ -27,12 +26,6 @@ const NavBar = () =>{
                 <ul>
                     <ItemNavBar links={link}/>
                     <CartWidget/>
-                    <Authentication/>
-                    <li>
-                        <NavLink to='/Formulario'>
-                            Registrarse
-                        </NavLink>
-                    </li>
                 </ul>
             </nav>
         </header>

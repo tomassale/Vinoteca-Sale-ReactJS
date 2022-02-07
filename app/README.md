@@ -2,7 +2,7 @@
 ## Bienvenido a Casona Wine!!
 Vinoteca La Casona Wine es el lugar donde desde hace más de 20 años la pasión por el buen vino, y las variadas etiquetas se funden en un gran abrazo para brindarle a nuestros clientes lo mejor de nuestros terroirs. CasonaWine un lugar donde el vino se disfruta.
 ## Proyecto
-![video](https://github.com//app/blob/master/public/CasonaWine.gif?raw=true)
+![video](https://github.com/tomassale/Vinoteca-Sale-ReactJS/blob/be4c9f74f953da68df68d9d6ba3da8c854540b2d/app/public/gif/CasonaWine.gif?raw=true)
 ## Herramientas usadas
 * Firebase: Data Base/Authentication 9.6.2v
 * React-Bootstrap: Components 2.1.2v
@@ -18,7 +18,17 @@ Vinoteca La Casona Wine es el lugar donde desde hace más de 20 años la pasión
 1.Clonar Repositorio
 ```
 > git clone https://github.com/tomassale/Vinoteca-Sale-ReactJS.git
+```
+2.Instalacion
+```
 > npm install
+```
+3.Posicionarse
+```
+> cd app
+```
+4.Iniciar
+```
 > npm start
 ```
 ## Tomás Javier Sale

@@ -12,13 +12,14 @@ const Carrito = () => {
         const ventasCollection = collection(db,"ventas")
         addDoc(ventasCollection,{
             comprador: {
-                nombre: localStorage.getItem("nombre"),
-                apellido: localStorage.getItem("apellido"),
-                email: localStorage.getItem("email")
+                nombre: "Tomás",
+                apellido: "Sale",
+                telefono: "+54 9 11 2342-2344",
+                email: "algo@gmail.com",
+                total: valorTotal,
             },
             items: carrito,
-            fecha: serverTimestamp (),
-            total: valorTotal
+            fecha: serverTimestamp(),
         })
         .then(()=>{
             limpiarCarrito()
@@ -33,7 +34,7 @@ const Carrito = () => {
                 {carrito.length === 0 ? (
                     <div className='carritoVacio'>
                         {comprado?(
-                            <h3>Gracias por su compra!!!</h3>
+                            <h2>Gracias por su compra!!!</h2>
                         ):(
                             <h2>No hay productos en el carrito</h2>
                         )}
