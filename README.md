@@ -4,7 +4,7 @@ Vinoteca La Casona Wine es el lugar donde desde hace más de 20 años la pasión
 ## Proyecto
 ![video]()
 ## Herramientas usadas
-* Firebase: Data Base/Authentication 9.6.2v
+* Firebase: Data Base 9.6.2v
 * React-Bootstrap: Components 2.1.2v
 * Google-Fonts: Fonts/Icons
 * Scss: Estilos 1.45.2v
