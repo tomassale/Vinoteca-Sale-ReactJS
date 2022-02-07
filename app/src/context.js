@@ -1,4 +1,6 @@
 import { createContext, useContext, useState } from "react";
+import { signInWithPopup, signOut } from 'firebase/auth'
+import { auth, provider } from "./fireBase"
 
 const contexto = createContext()
 export const { Provider } = contexto
@@ -11,13 +13,34 @@ const CustomProvider = ({children}) =>{
     const [cantidadTotal, setCantidadTotal] = useState(0)
     const [carrito, setCarrito] = useState([])
     const [valorTotal, setValorTotal] = useState(0)
-    
+    const [isSignIn, setIsSignIn] = useState (true)
+
+    const signInGoogle = () => {
+        signInWithPopup (auth, provider)
+        .then ((res) => {
+            const nombre = res.user.displayName
+            const email = res.user.email
+            localStorage.setItem ("nombre", nombre)
+            localStorage.setItem ("email", email)
+            setIsSignIn (false)    
+        }) 
+    }
+    const signOutGoogle = ()=>{
+        signOut (auth) 
+        .then (() =>{
+            localStorage.removeItem ("nombre")
+            localStorage.removeItem ("email")
+            document.location.reload()
+            setIsSignIn (true)
+        })
+    }
     const agregarCarrito = (cantidad, productoDetail) =>{
         const id = productoDetail.id
         if(isInCart(id)){
-            let match = carrito.find((p)=>p.id === id)
+            const copiaCarrito = [...carrito]
+            let match = copiaCarrito.find((p)=>p.id === id)
             match.cantidad = match.cantidad + cantidad
-            setCarrito(match)
+            setCarrito([...copiaCarrito])
         }else{
             const copiaProducto = {...productoDetail, cantidad}
             setCarrito ([...carrito, copiaProducto])
@@ -45,6 +68,9 @@ const CustomProvider = ({children}) =>{
         carrito,
         cantidadTotal,
         valorTotal,
+        isSignIn,
+        signInGoogle,
+        signOutGoogle,
         agregarCarrito,
         borrarCarrito,
         limpiarCarrito,

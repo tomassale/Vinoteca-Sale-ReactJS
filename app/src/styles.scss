@@ -75,6 +75,47 @@ body {
                 }
             }
         }
+        .formulario {
+            background-color: #f3d6b3;
+            height: auto;
+            width: 17cm;
+            margin: auto;
+            margin-top: 50px;
+            border: dotted 10px #f1b872;
+            font-size: 36px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            h1{
+                background-color: bisque;
+                font-size: 140px;
+                color: rgb(240, 173, 86);
+                text-align: center;
+            }
+            .textoRegistro {
+                width: 5cm;
+                height: 26px;
+                font-size: 25px;
+                text-align: center;
+            }
+            .textoRegistro:focus {
+                width: 6cm;
+                height: 30px;
+                font-size: 25px;
+            }
+            .button {
+                background-color: #fdcc8b;
+                width: 4cm;
+                height: 38px;
+                font-size: 28px;
+            }
+            .menu {
+                width: 7cm;
+                height: 30px;
+                font-size: 20px;
+                background-color: #ffcd91;
+            }
+        }
         #item {
             margin: 200px 430px 50px 520px;
             border: 10px black dotted;
@@ -155,49 +196,6 @@ body {
                 }
             }
         }
-        .registro {
-            background-image: url(../public/img/fondo/fondoCorchoR.jpg);
-            background-size: cover;
-            .formulario {
-                background-color: #f3d6b3;
-                height: auto;
-                width: 16cm;
-                margin: auto;
-                margin-bottom: 30px;
-                border: dotted 10px #f1b872;
-                font-size: 36px;
-                display: flex;
-                flex-direction: column;
-                text-align: center;
-                h1{
-                background-color: bisque;
-                font-size: 140px;
-                color: rgb(240, 173, 86);
-                text-align: center;
-                }
-                .texto {
-                width: 5cm;
-                height: 26px;
-                }
-                .texto:focus {
-                width: 6cm;
-                height: 30px;
-                font-size: 16px;
-                }
-                .button {
-                background-color: #fdcc8b;
-                width: 4cm;
-                height: 38px;
-                font-size: 28px;
-                }
-                .menu {
-                width: 7cm;
-                height: 30px;
-                font-size: 20px;
-                background-color: #ffcd91;
-                }
-            }
-        }
         .carrito {
             h1 {
                 text-align: center;
@@ -234,7 +232,7 @@ body {
                     .productoCarrito {
                         text-decoration: none;
                         display: flex;
-                        width: 1300px;
+                        width: 1350px;
                         height: max-content;
                         margin-left: auto;
                         margin-right: auto;
@@ -251,13 +249,14 @@ body {
                         .nombre {
                             margin-left: 70px;
                             margin-top: 18px;
-                            width: 370px;
+                            width: 400px;
                             h4 {
                                 font-size: 45px;
                             }
                         }
                         .valorUnitario {
-                            margin-left: 140px;
+                            width: 620px;
+                            margin-left: 100px;
                             margin-top: 14px;
                             p {
                                 font-size: 40px;
@@ -267,7 +266,7 @@ body {
                             font-size: 25px;
                         }
                         .equis {
-                            margin: 25px  25px 25px;
+                            margin: 25px 25px 25px 25px;
                             button {
                                 font-size: 30px;
                                 background-color: transparent;

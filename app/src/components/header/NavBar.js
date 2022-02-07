@@ -1,16 +1,16 @@
-import ItemNavBar from "./ItemNavBar"
-import {useState, useEffect} from "react"
-import {NavLink} from "react-router-dom"
+import {useState, useEffect} from 'react'
+import {NavLink} from 'react-router-dom'
 import { db } from '../../fireBase'
 import { collection, getDocs} from 'firebase/firestore'
-import CartWidget from "./CartWidget"
+import Authentication from './Authentication'
+import ItemNavBar from './ItemNavBar'
+import CartWidget from './CartWidget'
 
 const NavBar = () =>{
     
     const [link, setLink] = useState([])
     
     useEffect(()=>{
-
         const linksCollection = collection(db, 'navBar')
         getDocs(linksCollection)
             .then(({docs})=>{
@@ -21,12 +21,18 @@ const NavBar = () =>{
     return(
         <header>
             <nav>
-                <NavLink to="/">
+                <NavLink to='/'>
                     <h1 id='casonaWine'>Casona Wine</h1>
                 </NavLink>               
                 <ul>
                     <ItemNavBar links={link}/>
                     <CartWidget/>
+                    <Authentication/>
+                    <li>
+                        <NavLink to='/Formulario'>
+                            Registrarse
+                        </NavLink>
+                    </li>
                 </ul>
             </nav>
         </header>

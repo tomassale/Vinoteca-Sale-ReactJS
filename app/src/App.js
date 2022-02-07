@@ -4,9 +4,9 @@ import ItemDetailContainer from "./components/main/detail/ItemDetailContainer"
 import { Route, Routes, BrowserRouter } from "react-router-dom"
 import Footer from "./components/footer/Footer"
 import Carrito from "./components/main/context/Carrito"
+import Formulario from "./components/header/Formulario"
 import CustomProvider from './context'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
 
 const App = () =>{
     return(
@@ -16,6 +16,7 @@ const App = () =>{
                     <Routes>
                         <Route path="/" element={<ItemListContainer greeting="Tomás"/>}/>
                         <Route path="/Carrito" element={<Carrito/>}/>
+                        <Route path="/Formulario" element={<Formulario/>}/>
                         <Route path="/Categoria/:categoriaId" element={<ItemListContainer greeting="Tomás"/>}/>
                         <Route path="/Item/:id" element={<ItemDetailContainer/>}/>
                     </Routes>
